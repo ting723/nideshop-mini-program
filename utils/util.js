@@ -116,17 +116,23 @@ function login() {
 }
 
 function getUserInfo() {
+ 
+
   return new Promise(function (resolve, reject) {
-    wx.getUserInfo({
-      withCredentials: true,
-      success: function (res) {
-        console.log(res)
-        resolve(res);
-      },
-      fail: function (err) {
-        reject(err);
-      }
+    // 跳转到授权页面
+    wx.redirectTo({
+      url: '../../auth/authorization/authorization'
     })
+    // wx.getUserInfo({
+    //   withCredentials: true,
+    //   success: function (res) {
+    //     console.log(res)
+    //     resolve(res);
+    //   },
+    //   fail: function (err) {
+    //     reject(err);
+    //   }
+    // })
   });
 }
 
