@@ -39,6 +39,19 @@ Page({
     });
   },
   onLoad: function (options) {
+    wx.getSetting({
+      success: res=>{
+        if (res.authSetting['scope.userInfo']){
+             wx.getUserInfo({
+             success: res=>{
+               wx.setStorageSync("allUserInfo", res);
+             }
+          });
+        }else{
+          util.redirect("../auth/authorization/authorization");
+        }
+      }
+    });
     this.getIndexData();
   },
   onReady: function () {

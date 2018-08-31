@@ -1,7 +1,5 @@
 // pages/authorization/ authorization.js
 const app = getApp();
-const config = require('../../utils/config.js')
-const utils = require('../../utils/util.js')
 Page(Object.assign({}, {
 
   /**
@@ -16,7 +14,6 @@ Page(Object.assign({}, {
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(this.data.canIUse)
     this.setData({
       backType: options.backType == undefined ? 'home' : options.backType
     })
@@ -25,6 +22,9 @@ Page(Object.assign({}, {
   bindGetUserInfo: function(e) {
     let backtype = this.data.backType;
     if (e.detail.userInfo) {
+      wx.reLaunch({
+        url: '../../index/index'
+      })
     } else {
       wx.showToast({
         title: '请重新授权!!',
@@ -37,8 +37,9 @@ Page(Object.assign({}, {
 
   //返回首页 
   navigateBack: function(e) {
-    wx.switchTab({
-      url: '../home/home'
+    wx.showToast({
+      title: '点击右上角退出哦',
+      duration: 5000
     })
   }
 }));

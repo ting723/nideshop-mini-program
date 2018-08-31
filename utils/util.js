@@ -32,13 +32,10 @@ function request(url, data = {}, method = "GET") {
         'X-Nideshop-Token': wx.getStorageSync('token')
       },
       success: function (res) {
-        console.log("success");
-
         if (res.statusCode == 200) {
 
           if (res.data.errno == 401) {
             //需要登录后才可以操作
-
             let code = null;
             return login().then((res) => {
               code = res.code;
@@ -116,23 +113,17 @@ function login() {
 }
 
 function getUserInfo() {
- 
-
   return new Promise(function (resolve, reject) {
-    // 跳转到授权页面
-    wx.redirectTo({
-      url: '../../auth/authorization/authorization'
+    wx.getUserInfo({
+      withCredentials: true,
+      success: function (res) {
+        console.log(res)
+        resolve(res);
+      },
+      fail: function (err) {
+        reject(err);
+      }
     })
-    // wx.getUserInfo({
-    //   withCredentials: true,
-    //   success: function (res) {
-    //     console.log(res)
-    //     resolve(res);
-    //   },
-    //   fail: function (err) {
-    //     reject(err);
-    //   }
-    // })
   });
 }
 

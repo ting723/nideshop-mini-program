@@ -1,21 +1,16 @@
 <!--pages/authorization.wxml-->
 <view class='tag-title'>
-  <!-- <image mode="widthFix" style='width: 200rpx;height: 200rpx;margin-top:150rpx' src="../../images/logo.png"></image> -->
+  <!-- <image mode="widthFix" style='width: 200rpx;height: 200rpx;margin-top:150rpx' src="../../images/logo.png"></image> -->    
+    <open-data type="userAvatarUrl" class="userinfo-avatar" mode="cover"></open-data>
+    <open-data type="userNickName"></open-data>
 </view>
-<!-- <view wx:if="{{canIUse}}">
+<view wx:if="{{canIUse}}">
   <view class='zan-font-14 zan-c-gray-dark' style='text-align:center;margin-top:50rpx'>
     购物，需要允许授权哦~~</view>
   <view class="zan-btns">
     <button open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" class="zan-btn zan-btn--primary">授权登录</button>
-    <button bindtap='navigateBack' class="zan-btn">返回</button>
+    <button bindtap='navigateBack' class="zan-btn">退出</button>
   </view>
 </view>
 <view wx:else class='zan-font-16 zan-c-red' style='text-align:center;margin-top:50rpx'>
-  您的微信版本过低，请升级!!</view> -->
-
-<view class='zan-font-14 zan-c-gray-dark' style='text-align:center;margin-top:50rpx'>
-  购物，需要允许授权哦~~</view>
-<view class="zan-btns">
-  <button open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" class="zan-btn zan-btn--primary">授权登录</button>
-  <button bindtap='navigateBack' class="zan-btn">返回</button>
-</view>
+  您的微信版本过低，请升级!!</view>

@@ -47,6 +47,7 @@ Page({
     }).catch((err) => {
       console.log(err)
     });
+	 
   },
   exitLogin: function () {
     wx.showModal({
@@ -63,6 +64,5 @@ Page({
         }
       }
     })
-
   }
 })
